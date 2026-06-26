@@ -18,6 +18,28 @@
 window.SITE_DATA = {
 
   // ---------------------------------------------------------------
+  // 0) TURNIER  (großer Ankündigungs-Banner direkt unter dem Hero)
+  //    target: Countdown-Ziel als [ Jahr, Monat-1, Tag, Stunde, Minute ]
+  //    ACHTUNG: Monat ist 0-basiert!  Juni = 5
+  //    -> 28.06.2026 16:30 Uhr  =  [2026, 5, 28, 16, 30]
+  // ---------------------------------------------------------------
+  tournament: {
+    badge:      "Premiere · Das erste Turnier",
+    name:       "Der Erste Zirkel",
+    tagline:    "Ein Sieger. Zehn Millionen. Ewiger Ruhm.",
+    dateText:   "Sonntag, 28. Juni 2026 · 16:30 Uhr",
+    target:     [2026, 5, 28, 16, 30],
+    prizeLabel: "Preisgeld für den Champion",
+    prize:      "10.000.000 $",
+    format:     "Klassisches K.-o.-Turnier. Der genaue Baum und die Modi richten sich nach der Teilnehmerzahl.",
+    payout:     "Der Champion erhält 10.000.000 $. Die übrigen Plätze werden anhand der Teilnehmerzahl ausgeschüttet.",
+    elo:        "Jeder Kampf des Turniers fließt in die Elo-Wertung der Blut-Rangliste ein.",
+    location:   "TC Gangbase · Koordinaten 125,182",
+    register:   "Anmeldung vor Ort: Finde dich nach der Sonnenwende ab 16:00 Uhr an der Base ein - eingetragen wird kurz vor dem Start direkt vor Ort. Plätze sind unbegrenzt.",
+    contact:    "Fragen? Wende dich an Yzarc Mohammed (Kontakt unten auf der Seite)."
+  },
+
+  // ---------------------------------------------------------------
   // 1) KOMMENDE KÄMPFE  (Karten oben auf der Seite)
   //    status: "open" (grün) | "closed" (gelb) | "live" (rot, blinkt)
   //    note:   optionaler Hinweistext (leer lassen = kein Hinweis)
@@ -136,6 +158,7 @@ window.SITE_DATA = {
       </a>
 
       <div style="display:flex; align-items:center; gap:8px;" class="circle-navlinks">
+        <a href="#turnier" class="nav-link" style="display:inline-flex; align-items:center; gap:7px; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:#c9a84c; text-decoration:none; padding:8px 14px; border-bottom:2px solid transparent;"><i class="ti ti-trophy" style="font-size:16px;"></i>Turnier</a>
         <a href="#fights" class="nav-link" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:8px 14px; border-bottom:2px solid transparent;">Kommende Kämpfe</a>
         <a href="#leaderboard" class="nav-link" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:8px 14px; border-bottom:2px solid transparent;">Bestenliste</a>
         <a href="#about" class="nav-link" style="font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:8px 14px; border-bottom:2px solid transparent;">Über den Zirkel</a>
@@ -147,6 +170,7 @@ window.SITE_DATA = {
     </nav>
 
     <div id="mobile-menu" style="display:none; flex-direction:column; background:#0a0000; border-top:1px solid #3d1010;">
+      <a href="#turnier" class="mobile-link" style="font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; color:#c9a84c; text-decoration:none; padding:16px 24px; border-bottom:1px solid #1a0808;">Turnier</a>
       <a href="#fights" class="mobile-link" style="font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:16px 24px; border-bottom:1px solid #1a0808;">Kommende Kämpfe</a>
       <a href="#leaderboard" class="mobile-link" style="font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:16px 24px; border-bottom:1px solid #1a0808;">Bestenliste</a>
       <a href="#about" class="mobile-link" style="font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; color:#c8b89a; text-decoration:none; padding:16px 24px;">Über den Zirkel</a>
@@ -181,6 +205,98 @@ window.SITE_DATA = {
     <div style="position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:#7a0000; z-index:2; animation:circlePulse 3s ease-in-out infinite;"><i class="ti ti-chevron-down" style="font-size:30px;"></i></div>
   </section>
 
+  <!-- ===== TURNIER (ERSTES TURNIER) ===== -->
+  <section id="turnier" style="position:relative; padding:104px 24px 112px; background:linear-gradient(180deg,#070303 0%, #0b0606 50%, #050505 100%); border-top:2px solid #7a0000; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse 72% 62% at 50% 12%, rgba(122,0,0,.30), transparent 60%); pointer-events:none;"></div>
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse 52% 42% at 50% 30%, rgba(201,168,76,.10), transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg, transparent 0 38px, rgba(255,255,255,.012) 38px 39px); pointer-events:none;"></div>
+
+    <div style="position:relative; z-index:2; max-width:1060px; margin:0 auto; text-align:center;">
+
+      <!-- eyebrow -->
+      <div style="display:inline-flex; align-items:center; gap:16px; margin-bottom:24px; color:#c9a84c;">
+        <span style="height:1px; width:46px; background:linear-gradient(90deg, transparent, #c9a84c);"></span>
+        <i class="ti ti-trophy" style="font-size:24px; filter:drop-shadow(0 0 10px rgba(201,168,76,.5));"></i>
+        <span id="tourn-badge" style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:5px; text-transform:uppercase; font-size:13px; color:#c9a84c;">Premiere · Das erste Turnier</span>
+        <i class="ti ti-trophy" style="font-size:24px; filter:drop-shadow(0 0 10px rgba(201,168,76,.5));"></i>
+        <span style="height:1px; width:46px; background:linear-gradient(90deg, #c9a84c, transparent);"></span>
+      </div>
+
+      <h2 id="tourn-name" style="font-family:'Cinzel',serif; font-weight:900; text-transform:uppercase; font-size:clamp(42px,7.5vw,84px); line-height:.96; letter-spacing:2px; margin:0 0 18px; color:#f0e6d2; text-shadow:0 0 40px rgba(158,0,0,.5), 0 4px 0 #1a0000;">Der Erste Zirkel</h2>
+
+      <p id="tourn-tagline" style="font-family:'Oswald',sans-serif; font-weight:300; text-transform:uppercase; letter-spacing:5px; font-size:clamp(13px,2vw,18px); color:#c8b89a; margin:0 auto 30px;">Ein Sieger. Zehn Millionen. Ewiger Ruhm.</p>
+
+      <!-- date -->
+      <div style="display:inline-flex; align-items:center; gap:12px; border:1px solid #3d1010; background:#0c0606; padding:12px 22px; margin:0 0 40px;">
+        <i class="ti ti-calendar-event" style="color:#9e0000; font-size:20px;"></i>
+        <span id="tourn-date" style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; text-transform:uppercase; font-size:15px; color:#e8ddc8;">Sonntag, 28. Juni 2026 · 16:30 Uhr</span>
+      </div>
+
+      <!-- countdown -->
+      <div id="tourn-countdown" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:0 0 52px;">
+        <div style="background:linear-gradient(180deg,#140a0a,#0a0505); border:1px solid #3d1010; border-top:2px solid #7a0000; min-width:92px; padding:18px 12px 13px; box-shadow:inset 0 -8px 18px rgba(0,0,0,.6), 0 8px 22px rgba(0,0,0,.5);">
+          <span id="cd-days" style="display:block; font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#e7cf86; text-shadow:0 0 16px rgba(201,168,76,.35);">--</span>
+          <span style="display:block; margin-top:9px; font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#8a7c63;">Tage</span>
+        </div>
+        <div style="background:linear-gradient(180deg,#140a0a,#0a0505); border:1px solid #3d1010; border-top:2px solid #7a0000; min-width:92px; padding:18px 12px 13px; box-shadow:inset 0 -8px 18px rgba(0,0,0,.6), 0 8px 22px rgba(0,0,0,.5);">
+          <span id="cd-hours" style="display:block; font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#e7cf86; text-shadow:0 0 16px rgba(201,168,76,.35);">--</span>
+          <span style="display:block; margin-top:9px; font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#8a7c63;">Stunden</span>
+        </div>
+        <div style="background:linear-gradient(180deg,#140a0a,#0a0505); border:1px solid #3d1010; border-top:2px solid #7a0000; min-width:92px; padding:18px 12px 13px; box-shadow:inset 0 -8px 18px rgba(0,0,0,.6), 0 8px 22px rgba(0,0,0,.5);">
+          <span id="cd-mins" style="display:block; font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#e7cf86; text-shadow:0 0 16px rgba(201,168,76,.35);">--</span>
+          <span style="display:block; margin-top:9px; font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#8a7c63;">Minuten</span>
+        </div>
+        <div style="background:linear-gradient(180deg,#140a0a,#0a0505); border:1px solid #3d1010; border-top:2px solid #7a0000; min-width:92px; padding:18px 12px 13px; box-shadow:inset 0 -8px 18px rgba(0,0,0,.6), 0 8px 22px rgba(0,0,0,.5);">
+          <span id="cd-secs" style="display:block; font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; line-height:1; color:#e7cf86; text-shadow:0 0 16px rgba(201,168,76,.35);">--</span>
+          <span style="display:block; margin-top:9px; font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#8a7c63;">Sekunden</span>
+        </div>
+      </div>
+      <div id="tourn-live" style="display:none; align-items:center; justify-content:center; gap:12px; margin:0 auto 52px; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:3px; text-transform:uppercase; font-size:16px; color:#fff; background:#7a0000; border:1px solid #e11e1e; padding:16px 30px;"><i class="ti ti-flame" style="font-size:20px;"></i>Das Turnier hat begonnen</div>
+
+      <!-- prize centerpiece -->
+      <div id="tourn-prize-tile" style="display:inline-flex; flex-direction:column; align-items:center; gap:8px; background:radial-gradient(ellipse at 50% 0%, rgba(122,0,0,.22), transparent 70%), #0c0606; border:1px solid #3d1010; border-top:3px solid #c9a84c; padding:34px 60px; margin:0 0 48px; box-shadow:inset 0 2px 0 rgba(255,255,255,.04), 0 18px 50px rgba(0,0,0,.6); clip-path:polygon(0 0,100% 0,100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);">
+        <i class="ti ti-coins" style="font-size:30px; color:#c9a84c; filter:drop-shadow(0 0 14px rgba(201,168,76,.5));"></i>
+        <span id="tourn-prizeLabel" style="font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:5px; text-transform:uppercase; font-size:13px; color:#8a7c63;">Preisgeld für den Champion</span>
+        <span id="tourn-prize" style="font-family:'Cinzel',serif; font-weight:900; font-size:clamp(48px,9vw,88px); line-height:1; letter-spacing:1px; background:linear-gradient(180deg,#f6e7ad 0%,#d7b85e 50%,#9c7a28 100%); -webkit-background-clip:text; background-clip:text; color:transparent;">10.000.000 $</span>
+      </div>
+
+      <!-- info cards -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin:0 0 50px; text-align:left;">
+        <div style="background:#111010; border:1px solid #1c0d0d; border-left:4px solid #7a0000; padding:24px 24px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <i class="ti ti-tournament" style="color:#c9a84c; font-size:22px;"></i>
+            <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3px; text-transform:uppercase; font-size:13px; color:#e8ddc8;">Format</span>
+          </div>
+          <p id="tourn-format" style="margin:0; font-size:14px; line-height:1.6; color:#9a8c72;">Klassisches K.-o.-Turnier. Der genaue Baum und die Modi richten sich nach der Teilnehmerzahl.</p>
+        </div>
+        <div style="background:#111010; border:1px solid #1c0d0d; border-left:4px solid #7a0000; padding:24px 24px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <i class="ti ti-coin" style="color:#c9a84c; font-size:22px;"></i>
+            <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3px; text-transform:uppercase; font-size:13px; color:#e8ddc8;">Preisverteilung</span>
+          </div>
+          <p id="tourn-payout" style="margin:0; font-size:14px; line-height:1.6; color:#9a8c72;">Der Champion erhält 10.000.000 $. Die übrigen Plätze werden anhand der Teilnehmerzahl ausgeschüttet.</p>
+        </div>
+        <div style="background:#111010; border:1px solid #1c0d0d; border-left:4px solid #7a0000; padding:24px 24px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <i class="ti ti-chart-line" style="color:#c9a84c; font-size:22px;"></i>
+            <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3px; text-transform:uppercase; font-size:13px; color:#e8ddc8;">Elo-Wertung</span>
+          </div>
+          <p id="tourn-elo" style="margin:0; font-size:14px; line-height:1.6; color:#9a8c72;">Jeder Kampf des Turniers fließt in die Elo-Wertung der Blut-Rangliste ein.</p>
+        </div>
+      </div>
+
+      <!-- Anmeldung vor Ort -->
+      <div style="max-width:640px; margin:0 auto; background:radial-gradient(ellipse at 50% 0%, rgba(122,0,0,.18), transparent 70%), #0c0606; border:1px solid #3d1010; border-top:3px solid #7a0000; padding:32px 38px; box-shadow:0 18px 50px rgba(0,0,0,.6);">
+        <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <i class="ti ti-map-pin" style="color:#c9a84c; font-size:22px;"></i>
+          <span id="tourn-location" style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; text-transform:uppercase; font-size:15px; color:#e8ddc8;">TC Gangbase · Koordinaten 125,182</span>
+        </div>
+        <p id="tourn-register" style="margin:0 0 16px; font-size:15px; line-height:1.7; color:#9a8c72;">Anmeldung vor Ort: Finde dich nach der Sonnenwende ab 16:00 Uhr an der Base ein — eingetragen wird kurz vor dem Start direkt vor Ort. Plätze sind unbegrenzt.</p>
+        <p id="tourn-contact" style="margin:0; font-size:13px; line-height:1.6; color:#6a5e4a; letter-spacing:1px;">Fragen? Wende dich an Yzarc Mohammed (Kontakt unten auf der Seite).</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SCHEDULED FIGHTS ===== -->
   <section id="fights" style="position:relative; padding:90px 24px 100px; background:linear-gradient(180deg, #050505 0%, #0c0606 100%); border-top:1px solid #1a0808;">
     <div style="max-width:1280px; margin:0 auto;">
@@ -190,7 +306,12 @@ window.SITE_DATA = {
           <h2 style="font-family:'Cinzel',serif; font-weight:800; text-transform:uppercase; font-size:clamp(32px,5vw,52px); letter-spacing:3px; margin:0; color:#e8ddc8; text-shadow:0 2px 0 #000;">Geplante Kämpfe</h2>
         </div>
       </div>
-      <p style="text-align:center; color:#8a7c63; max-width:600px; margin:0 auto 54px; font-size:15px; line-height:1.7;">Tritt ein, melde dich an oder schau zu, wie der Sand sich rot färbt. Die Plätze sind begrenzt — der Tod ist es nicht.</p>
+      <p style="text-align:center; color:#8a7c63; max-width:600px; margin:0 auto 28px; font-size:15px; line-height:1.7;">Tritt ein, melde dich an oder schau zu, wie der Sand sich rot färbt. Die Plätze sind begrenzt — der Tod ist es nicht.</p>
+
+      <div style="display:flex; align-items:center; justify-content:center; gap:14px; max-width:780px; margin:0 auto 54px; background:rgba(122,0,0,.12); border:1px solid #3d1010; border-left:4px solid #d99b2b; padding:18px 26px;">
+        <i class="ti ti-player-pause" style="color:#d99b2b; font-size:26px; flex:none;"></i>
+        <span style="font-family:'Oswald',sans-serif; font-weight:400; letter-spacing:1px; font-size:15px; color:#e8ddc8; line-height:1.55;">Bis zum Ende des Turniers ausgesetzt — die regulären Kämpfe pausieren und werden erst nach Turnierende wieder aufgenommen.</span>
+      </div>
 
       <div id="fights-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:26px;"></div>
     </div>
@@ -253,7 +374,7 @@ window.SITE_DATA = {
 
       <div style="display:flex; align-items:center; justify-content:center; gap:18px; margin:0 0 38px; flex-wrap:wrap;">
         <a href="https://discord.com/channels/990645542260445254/1510575313518727211" target="_blank" rel="noopener" class="footer-link" style="display:inline-flex; align-items:center; gap:10px; border:1px solid #3d1010; background:#0c0606; color:#c8b89a; text-decoration:none; padding:12px 20px; font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:13px;"><i class="ti ti-brand-discord" style="font-size:20px;"></i>Discord</a>
-        <a href="tel:555438158" class="footer-link" style="display:inline-flex; align-items:center; gap:10px; border:1px solid #3d1010; background:#0c0606; color:#c8b89a; text-decoration:none; padding:12px 20px; font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:13px;"><i class="ti ti-phone" style="font-size:20px;"></i>555 438 158</a>
+        <button type="button" id="copy-phone" data-phone="555 438 158" class="footer-link" style="display:inline-flex; align-items:center; gap:10px; border:1px solid #3d1010; background:#0c0606; color:#c8b89a; cursor:pointer; padding:12px 20px; font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:13px;"><i class="ti ti-phone" style="font-size:20px;"></i><span id="copy-phone-label">555 438 158</span></button>
       </div>
 
       <p style="font-size:12px; color:#5a4f40; line-height:1.7; margin:0 0 28px; max-width:560px; margin-left:auto; margin-right:auto;">Dies ist eine fiktive Rollenspiel-Fraktion für Arma 3. Alle Kämpfe finden ausschließlich im Spiel statt.</p>
@@ -262,6 +383,8 @@ window.SITE_DATA = {
       <p style="font-family:'Oswald',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:12px; color:#6a5e4a; margin:0;">© The Circle · Alle Rechte vorbehalten</p>
     </div>
   </footer>
+
+  <div id="money-burst" style="position:fixed; inset:0; overflow:visible; pointer-events:none; z-index:60;"></div>
 
 <!-- ===== RENDER-LOGIK (nicht ändern) ===== -->
 <script>
@@ -280,6 +403,166 @@ window.SITE_DATA = {
   Array.prototype.forEach.call(document.querySelectorAll('.mobile-link'), function (a) {
     a.addEventListener('click', function () { menu.style.display = 'none'; });
   });
+
+  // ---- Turnier (Texte + Live-Countdown) ----
+  var T = D.tournament;
+  if (T) {
+    var setTxt = function (id, val) { var el = document.getElementById(id); if (el != null && val != null) el.textContent = val; };
+    setTxt('tourn-badge', T.badge);
+    setTxt('tourn-name', T.name);
+    setTxt('tourn-tagline', T.tagline);
+    setTxt('tourn-date', T.dateText);
+    setTxt('tourn-prizeLabel', T.prizeLabel);
+    setTxt('tourn-prize', T.prize);
+    setTxt('tourn-format', T.format);
+    setTxt('tourn-payout', T.payout);
+    setTxt('tourn-elo', T.elo);
+    setTxt('tourn-location', T.location);
+    setTxt('tourn-register', T.register);
+    setTxt('tourn-contact', T.contact);
+
+    var tg = T.target || [];
+    var target = new Date(tg[0], tg[1], tg[2], tg[3] || 0, tg[4] || 0, 0).getTime();
+    var pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
+    var cdWrap = document.getElementById('tourn-countdown');
+    var liveBox = document.getElementById('tourn-live');
+    var tick = function () {
+      var diff = target - Date.now();
+      if (isNaN(target)) return;
+      if (diff <= 0) {
+        if (cdWrap) cdWrap.style.display = 'none';
+        if (liveBox) liveBox.style.display = 'inline-flex';
+        return;
+      }
+      var s = Math.floor(diff / 1000);
+      var d = Math.floor(s / 86400); s -= d * 86400;
+      var h = Math.floor(s / 3600);  s -= h * 3600;
+      var m = Math.floor(s / 60);    s -= m * 60;
+      setTxt('cd-days', d);
+      setTxt('cd-hours', pad2(h));
+      setTxt('cd-mins', pad2(m));
+      setTxt('cd-secs', pad2(s));
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // ---- Telefonnummer in die Zwischenablage kopieren ----
+  var copyBtn = document.getElementById('copy-phone');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var num = copyBtn.getAttribute('data-phone') || '';
+      var label = document.getElementById('copy-phone-label');
+      var original = label ? label.textContent : '';
+      var done = function () {
+        if (label) {
+          label.textContent = 'Kopiert!';
+          setTimeout(function () { label.textContent = original; }, 1600);
+        }
+      };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = num; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta); done();
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(num).then(done, fallback);
+      } else { fallback(); }
+    });
+  }
+
+  // ---- Preisgeld hochzählen, danach Geldschein-Burst (einmalig) ----
+  (function () {
+    var tile = document.getElementById('tourn-prize-tile');
+    var stage = document.getElementById('money-burst');
+    var numEl = document.getElementById('tourn-prize');
+    if (!tile || !stage || !numEl || !('IntersectionObserver' in window)) return;
+
+    var rnd = function (a, b) { return a + Math.random() * (b - a); };
+    var prizeStr = (T && T.prize) ? String(T.prize) : '0';
+    var targetNum = parseInt(prizeStr.replace(/[^\d]/g, ''), 10) || 0;
+    var suffix = prizeStr.replace(/[\d.\s\u00a0]/g, '');
+    var fmt = function (n) {
+      return Math.round(n).toLocaleString('de-DE') + (suffix ? ' ' + suffix : '');
+    };
+    var nowFn = function () { return (window.performance && performance.now) ? performance.now() : Date.now(); };
+
+    var started = false;
+    numEl.textContent = fmt(0);
+
+    var countUp = function (dur, done) {
+      var t0 = nowFn();
+      var step = function () {
+        var t = Math.min(1, (nowFn() - t0) / dur);
+        var eased = 1 - Math.pow(1 - t, 3);
+        numEl.textContent = fmt(targetNum * eased);
+        if (t < 1) requestAnimationFrame(step);
+        else { numEl.textContent = fmt(targetNum); if (done) done(); }
+      };
+      requestAnimationFrame(step);
+    };
+
+    var spawnBurst = function () {
+      if (!tile.animate) return;
+      if (numEl.animate) {
+        numEl.animate(
+          [{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }],
+          { duration: 640, easing: 'cubic-bezier(.34,1.56,.64,1)' }
+        );
+      }
+      var sRect = stage.getBoundingClientRect();
+      var tRect = tile.getBoundingClientRect();
+      var cx = tRect.left - sRect.left + tRect.width / 2;
+      var cy = tRect.top - sRect.top + tRect.height / 2;
+
+      var N = 30;
+      for (var i = 0; i < N; i++) {
+        var gold = Math.random() < 0.28;
+        var w = rnd(40, 56), h = w * 0.52;
+        var note = document.createElement('div');
+        note.style.cssText =
+          'position:absolute; left:' + cx + 'px; top:' + cy + 'px; width:' + w + 'px; height:' + h + 'px;' +
+          'display:flex; align-items:center; justify-content:center; border-radius:3px; will-change:transform,opacity;' +
+          "font-family:'Oswald',sans-serif; font-weight:700; letter-spacing:1px; font-size:" + (gold ? 11 : 14) + 'px;' +
+          (gold
+            ? 'background:linear-gradient(135deg,#f6e7ad,#c9a84c); border:1px solid #9c7a28; color:#5a4410;'
+            : 'background:linear-gradient(135deg,#2f6b3d,#1e4a2a); border:1px solid #14361d; color:#bfe6c4;') +
+          'box-shadow:0 4px 12px rgba(0,0,0,.5); text-shadow:0 1px 0 rgba(0,0,0,.18); opacity:0;';
+        note.textContent = gold ? '10M' : '$';
+        stage.appendChild(note);
+
+        var dir = rnd(0, Math.PI * 2);
+        var dist = rnd(280, 820);
+        var dx = Math.cos(dir) * dist * 1.35;
+        var rise = rnd(640, 1180);
+        var fall = rise + rnd(360, 700);
+        var rot = rnd(-540, 540);
+        var dur = rnd(7000, 9500);
+
+        var anim = note.animate([
+          { transform: 'translate(-50%,-50%) translate(0,0) rotate(0deg) scale(.4)', opacity: 0 },
+          { transform: 'translate(-50%,-50%) translate(' + (dx * 0.5) + 'px,' + (-rise) + 'px) rotate(' + (rot * 0.4) + 'deg) scale(1)', opacity: 1, offset: 0.2 },
+          { transform: 'translate(-50%,-50%) translate(' + (dx * 0.85) + 'px,' + (-rise * 0.5) + 'px) rotate(' + (rot * 0.75) + 'deg) scale(1)', opacity: 1, offset: 0.5 },
+          { transform: 'translate(-50%,-50%) translate(' + (dx * 1.25) + 'px,' + fall + 'px) rotate(' + rot + 'deg) scale(.95)', opacity: 0 }
+        ], { duration: dur, delay: rnd(0, 400), easing: 'cubic-bezier(.18,.55,.32,1)', fill: 'both' });
+
+        anim.onfinish = (function (el) { return function () { if (el.parentNode) el.parentNode.removeChild(el); }; })(note);
+      }
+    };
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && e.intersectionRatio >= 0.55 && !started) {
+          started = true;
+          io.disconnect();
+          countUp(2200, spawnBurst);
+        }
+      });
+    }, { threshold: [0, 0.55, 1] });
+    io.observe(tile);
+  })();
 
   // ---- Upcoming fights ----
   var statusMap = {
